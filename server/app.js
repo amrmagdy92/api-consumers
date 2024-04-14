@@ -14,6 +14,7 @@ import bodyParser from "body-parser"
 import compress from "compression"
 
 // Routers
+import newsRouter from "./routers/news.router"
 
 // app configuration
 dotenv.config()
@@ -53,6 +54,7 @@ app.get('/', (req, res) => {
 })
 
 // Routes
+app.use('/api/v1/news', newsRouter)
 
 // Export
 export default app
