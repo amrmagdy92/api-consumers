@@ -1,5 +1,5 @@
 const getAPIList = () => {
-    return ["News", "APIs.GURU", "Weather"]
+    return ["News", "URL-Shortener", "Weather"]
 }
 
 export {
