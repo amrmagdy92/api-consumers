@@ -12,7 +12,7 @@ router.route("/")
             .then( result => {
                 let responseCode = result.code
                 let message = result.msg
-                response.status(responseCode).json({ msg: message })
+                response.status(responseCode).render("categories.ejs", { data: message })
             })
             .catch(err => {
                 let responseCode = err.code
@@ -26,7 +26,7 @@ router.route("/")
         .then( result => {
             let responseCode = result.code
             let message = result.msg
-            response.status(responseCode).json({ msg: message })
+            response.status(responseCode).render("news.ejs", { data: message[request.body.sections] })
         })
         .catch(err => {
             let responseCode = err.code
