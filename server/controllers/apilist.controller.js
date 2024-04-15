@@ -1,5 +1,5 @@
 const getAPIList = () => {
-    return process.env.API_LIST
+    return ["News", "APIs.GURU", "Weather"]
 }
 
 export {
