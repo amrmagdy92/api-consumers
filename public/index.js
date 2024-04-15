@@ -51,7 +51,19 @@ function requestAPIList() {
     request.send()
 }
 
+function requestURLShortener() {}
+
+function requestWeather() {}
+
+function loadMainSection(apiCategory) {
+    if (apiCategory === "news") {
+        requestNewsCategories()
+        requestNews()
+    } else if (apiCategory === "URL-Shortener") {} else if (apiCategory === "Weather") {}
+}
+
 window.onload = function () {
     requestNewsCategories()
     requestAPIList()
+    requestNews()
 }
