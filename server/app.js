@@ -4,6 +4,7 @@ import express from "express"
 // Security Modules
 import cors from "cors"
 import helmet from "helmet"
+import csp from "helmet-csp"
 import expressRateLimiter from "express-rate-limit"
 
 // Environment configuration
@@ -24,6 +25,14 @@ const configuredCompress = compress()
 
 // Security Configurations
 const configuredHelmet = helmet({ crossOriginResourcePolicy: false })
+const configuredCSP = csp({
+    directives: {
+        defaultSrc: ["'self'"],
+        scriptSrc: ["'self' https://cdn.jsdelivr.net"],
+        styleSrc: ["'self' 'unsafe-inline'"],
+        imgSrc: ["'self' data:"]
+    }
+})
 const configuredCors = cors({
     origin: process.env.CORS_ORIGIN,
     methods: process.env.CORS_METHODS,
@@ -45,6 +54,7 @@ app.use(configuredBodyParserJSON)
 app.use(configuredBodyParserURLEncoding)
 app.use(configuredCompress)
 app.use(configuredHelmet)
+app.use(configuredCSP)
 app.use(configuredCors)
 app.use(configuredRateLimiter)
 app.set('view engine', 'ejs')
