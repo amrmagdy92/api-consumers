@@ -15,6 +15,7 @@ import bodyParser from "body-parser"
 import compress from "compression"
 
 // Routers
+import apiListRouter from "./routers/apilist.router"
 import newsRouter from "./routers/news.router"
 
 // app configuration
@@ -66,6 +67,7 @@ app.get('/', (req, res) => {
 
 // Routes
 app.use('/api/v1/news', newsRouter)
+app.use('/api/v1/apilist', apiListRouter)
 
 // Export
 export default app
