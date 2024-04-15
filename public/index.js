@@ -20,7 +20,7 @@ function requestNewsCategories () {
 function requestNews(category) {
     const request = new XMLHttpRequest()
     const body = {
-        "sections": [ category ]
+        "sections": [ category? category : "Technology" ]
     }
     request.open('POST', 'http://localhost:3000/api/v1/news/?endPointName=news-section')
     request.setRequestHeader('Content-Type', 'application/json')
@@ -55,5 +55,4 @@ function requestAPIList() {
 window.onload = function () {
     requestNewsCategories()
     requestAPIList()
-    requestNews("Technology")
 }
