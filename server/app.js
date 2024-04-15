@@ -35,7 +35,7 @@ const configuredCSP = csp({
 })
 const configuredCors = cors({
     origin: process.env.CORS_ORIGIN,
-    methods: process.env.CORS_METHODS,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     credentials: process.env.CORS_CREDENTIALS
 })
 const configuredRateLimiter = expressRateLimiter({
@@ -57,10 +57,11 @@ app.use(configuredHelmet)
 app.use(configuredCSP)
 app.use(configuredCors)
 app.use(configuredRateLimiter)
+app.use(express.static('public'))
 app.set('view engine', 'ejs')
 
 app.get('/', (req, res) => {
-    res.send("hello")
+    res.send("index.html")
 })
 
 // Routes
