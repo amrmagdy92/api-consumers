@@ -5,7 +5,7 @@ const router = Router()
 
 router.route("/")
     .get((request, response) => {
-        response.status(200).render("ap.nav.ejs", {
+        response.status(200).render("api.nav.ejs", {
             data: getAPIList()
         })
     })
