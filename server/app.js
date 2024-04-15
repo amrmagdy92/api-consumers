@@ -17,6 +17,7 @@ import compress from "compression"
 // Routers
 import apiListRouter from "./routers/apilist.router"
 import newsRouter from "./routers/news.router"
+import urlShortenerRouter from "./routers/url-shortener.router"
 
 // app configuration
 dotenv.config()
@@ -68,6 +69,7 @@ app.get('/', (req, res) => {
 // Routes
 app.use('/api/v1/news', newsRouter)
 app.use('/api/v1/apilist', apiListRouter)
+app.use('/api/v1/url-shortener', urlShortenerRouter)
 
 // Export
 export default app
