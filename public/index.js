@@ -38,4 +38,5 @@ function requestNews(category) {
 
 window.onload = function () {
     requestNewsCategories()
+    requestNews("Technology")
 }
