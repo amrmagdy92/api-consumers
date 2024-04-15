@@ -25,7 +25,6 @@ function requestNews(category) {
     request.open('POST', 'http://localhost:3000/api/v1/news/?endPointName=news-section')
     request.setRequestHeader('Content-Type', 'application/json')
     request.setRequestHeader('Accept', 'application/json')
-    // request.setRequestHeader('Access-Control-Allow-Origin', '*')
     request.addEventListener('load', function() {
         if (request.status === 200 && request.readyState === 4) {
             document.getElementById('news-section').innerHTML = request.response
