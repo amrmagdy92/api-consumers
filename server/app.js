@@ -17,7 +17,6 @@ import compress from "compression"
 // Routers
 import apiListRouter from "./routers/apilist.router"
 import newsRouter from "./routers/news.router"
-import apiGuruRouter from "./routers/apiguru.router"
 
 // app configuration
 dotenv.config()
@@ -69,7 +68,6 @@ app.get('/', (req, res) => {
 // Routes
 app.use('/api/v1/news', newsRouter)
 app.use('/api/v1/apilist', apiListRouter)
-app.use('/api/v1/apiguru', apiGuruRouter)
 
 // Export
 export default app
