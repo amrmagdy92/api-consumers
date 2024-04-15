@@ -28,9 +28,9 @@ const configuredHelmet = helmet({ crossOriginResourcePolicy: false })
 const configuredCSP = csp({
     directives: {
         defaultSrc: ["'self'"],
-        scriptSrc: ["'self' https://cdn.jsdelivr.net"],
-        styleSrc: ["'self' 'unsafe-inline'"],
-        imgSrc: ["'self' data:"]
+        scriptSrc: ["'self' 'unsafe-inline' https://cdn.jsdelivr.net"],
+        styleSrc: ["'self' 'unsafe-inline' https://cdn.jsdelivr.net"],
+        imgSrc: ["'self' https://encrypted-tbn0.gstatic.com/ https://encrypted-tbn1.gstatic.com/ https://encrypted-tbn2.gstatic.com/ https://encrypted-tbn3.gstatic.com/"]
     }
 })
 const configuredCors = cors({
