@@ -1,14 +1,18 @@
-<% for (let i=0; i<data.length; i++) {%>
-    <div class="card m-1 col-sm-12">
-        <img src="<%= data[i].og %>" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title"><%= data[i].title %></h5>
-            <h5 class="card-title">
-                <img src="<%= data[i].source_icon %>">
-                Source: <%= data[i].source %>
-            </h5>
-            <p class="card-text"><%= data[i].description %></p>
-            <a href="<%= data[i].link %>" target="_blank" class="btn btn-primary">Go to post</a>
+<div class="row row-cols-1 row-cols-md-3 gx-4 gy-4 text-center">
+    <% for (let i=0; i<data.length; i++) {%>
+        <div class="col themed-grid-col">
+            <div class="card m-1 col-sm-12" style="height: 100%;">
+                <img src="<%= data[i].og %>" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title"><%= data[i].title %></h5>
+                    <h5 class="card-title">
+                        <img src="<%= data[i].source_icon %>">
+                        Source: <%= data[i].source %>
+                    </h5>
+                    <p class="card-text"><%= data[i].description %></p>
+                    <a href="<%= data[i].link %>" target="_blank" class="btn btn-primary">Go to post</a>
+                </div>
+            </div>
         </div>
-    </div>
-<%}%>
+    <%}%>
+</div>
