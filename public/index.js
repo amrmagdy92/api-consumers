@@ -59,7 +59,11 @@ function loadMainSection(apiCategory) {
     if (apiCategory === "news") {
         requestNewsCategories()
         requestNews()
-    } else if (apiCategory === "URL-Shortener") {} else if (apiCategory === "Weather") {}
+    } else if (apiCategory === "URL-Shortener") {
+        requestURLShortener()
+    } else if (apiCategory === "Weather") {
+        requestWeather()
+    }
 }
 
 window.onload = function () {
