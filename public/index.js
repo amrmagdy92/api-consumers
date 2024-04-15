@@ -6,7 +6,7 @@ function requestNewsCategories () {
     request.setRequestHeader('Access-Control-Allow-Origin', '*')
     request.addEventListener('load', function() {
         if (request.status === 200 && request.readyState === 4) {
-            console.log(request.response)
+            document.getElementById('categories-nav').innerHTML = request.response
         } else {
             if (request.status == 400 && request.readyState === 4) {
                 console.log(request.response)
