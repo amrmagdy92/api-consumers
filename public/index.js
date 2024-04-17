@@ -115,7 +115,7 @@ function requestURLShortener() {
     request.send()
 }
 
-function requestWeather() {}
+function requestNASA() {}
 
 function loadMainSection(apiCategory) {
     if (apiCategory === "News") {
@@ -124,8 +124,8 @@ function loadMainSection(apiCategory) {
         requestNews()
     } else if (apiCategory === "URL-Shortener") {
         requestURLShortener()
-    } else if (apiCategory === "Weather") {
-        requestWeather()
+    } else if (apiCategory === "NASA-Picture-of-the-day") {
+        requestNASA()
     }
 }
 
