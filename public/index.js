@@ -1,6 +1,6 @@
 function requestNewsView() {
     const request = new XMLHttpRequest()
-    request.open('GET', 'http://localhost:3000/api/v1/news/news-view')
+    request.open('GET', 'https://api-consumers.onrender.com/api/v1/news/news-view')
     request.setRequestHeader('Content-Type', 'application/json')
     request.setRequestHeader('Accept', 'application/json')
     request.setRequestHeader('Access-Control-Allow-Origin', '*')
@@ -19,7 +19,7 @@ function requestNewsView() {
 
 function requestNewsCategories () {
     const request = new XMLHttpRequest()
-    request.open('GET', 'http://localhost:3000/api/v1/news/?endPointName=news-section-names')
+    request.open('GET', 'https://api-consumers.onrender.com/api/v1/news/?endPointName=news-section-names')
     request.setRequestHeader('Content-Type', 'application/json')
     request.setRequestHeader('Accept', 'application/json')
     request.setRequestHeader('Access-Control-Allow-Origin', '*')
@@ -41,7 +41,7 @@ function requestNews(category) {
     const body = {
         "sections": [ category? category : "Technology" ]
     }
-    request.open('POST', 'http://localhost:3000/api/v1/news/?endPointName=news-section')
+    request.open('POST', 'https://api-consumers.onrender.com/api/v1/news/?endPointName=news-section')
     request.setRequestHeader('Content-Type', 'application/json')
     request.setRequestHeader('Accept', 'application/json')
     request.addEventListener('load', function() {
@@ -59,7 +59,7 @@ function shortenUrl() {
     const body = {
         "url": document.getElementById('shortener-input').value
     }
-    request.open('POST', 'http://localhost:3000/api/v1/url-shortener')
+    request.open('POST', 'https://api-consumers.onrender.com/api/v1/url-shortener')
     request.setRequestHeader('Content-Type', 'application/json')
     request.setRequestHeader('Accept', 'application/json')
     request.addEventListener('load', function() {
@@ -81,7 +81,7 @@ function shortenUrl() {
 
 function requestAPIList() {
     const request = new XMLHttpRequest()
-    request.open('GET', 'http://localhost:3000/api/v1/apilist')
+    request.open('GET', 'https://api-consumers.onrender.com/api/v1/apilist')
     request.setRequestHeader('Content-Type', 'application/json')
     request.setRequestHeader('Accept', 'application/json')
     request.setRequestHeader('Access-Control-Allow-Origin', '*')
@@ -97,7 +97,7 @@ function requestAPIList() {
 
 function requestURLShortener() {
     const request = new XMLHttpRequest()
-    request.open('GET', 'http://localhost:3000/api/v1/url-shortener')
+    request.open('GET', 'https://api-consumers.onrender.com/api/v1/url-shortener')
     request.setRequestHeader('Content-Type', 'application/json')
     request.setRequestHeader('Accept', 'application/json')
     request.addEventListener('load', function() {
@@ -117,7 +117,7 @@ function requestURLShortener() {
 
 function requestNASA() {
     const request = new XMLHttpRequest()
-    request.open('GET', 'http://localhost:3000/api/v1/nasa')
+    request.open('GET', 'https://api-consumers.onrender.com/api/v1/nasa')
     request.setRequestHeader('Content-Type', 'application/json')
     request.setRequestHeader('Accept', 'application/json')
     request.addEventListener('load', function() {
