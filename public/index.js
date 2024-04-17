@@ -1,3 +1,22 @@
+function requestNewsView() {
+    const request = new XMLHttpRequest()
+    request.open('GET', 'http://localhost:3000/api/v1/news/news-view')
+    request.setRequestHeader('Content-Type', 'application/json')
+    request.setRequestHeader('Accept', 'application/json')
+    request.setRequestHeader('Access-Control-Allow-Origin', '*')
+    request.addEventListener('load', function() {
+        if (request.status === 200 && request.readyState === 4) {
+            document.getElementById('main-body').innerHTML = request.response
+        } else {
+            if (request.status == 400 && request.readyState === 4) {
+                console.log(request.response)
+                // TODO: Add proper error handling
+            }
+        }
+    })
+    request.send()
+}
+
 function requestNewsCategories () {
     const request = new XMLHttpRequest()
     request.open('GET', 'http://localhost:3000/api/v1/news/?endPointName=news-section-names')
@@ -99,7 +118,8 @@ function requestURLShortener() {
 function requestWeather() {}
 
 function loadMainSection(apiCategory) {
-    if (apiCategory === "news") {
+    if (apiCategory === "News") {
+        requestNewsView()
         requestNewsCategories()
         requestNews()
     } else if (apiCategory === "URL-Shortener") {
@@ -110,7 +130,8 @@ function loadMainSection(apiCategory) {
 }
 
 window.onload = function () {
-    requestNewsCategories()
+    requestNewsView()
     requestAPIList()
+    requestNewsCategories()
     requestNews()
 }
