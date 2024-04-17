@@ -33,7 +33,7 @@ const configuredCSP = csp({
         defaultSrc: ["'self'"],
         scriptSrc: ["'self' 'unsafe-inline' https://cdn.jsdelivr.net"],
         styleSrc: ["'self' 'unsafe-inline' https://cdn.jsdelivr.net"],
-        imgSrc: ["'self' https://encrypted-tbn0.gstatic.com/ https://encrypted-tbn1.gstatic.com/ https://encrypted-tbn2.gstatic.com/ https://encrypted-tbn3.gstatic.com/"]
+        imgSrc: ["'self' 'unsafe-inline' https://encrypted-tbn0.gstatic.com/ https://encrypted-tbn1.gstatic.com/ https://encrypted-tbn2.gstatic.com/ https://encrypted-tbn3.gstatic.com/ https://apod.nasa.gov/"]
     }
 })
 const configuredCors = cors({
