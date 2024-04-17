@@ -35,4 +35,9 @@ router.route("/")
         })
     })
 
+router.route("/news-view")
+    .get((request, response) => {
+        response.status(200).render("news-view.ejs")
+    })
+
 export default router
