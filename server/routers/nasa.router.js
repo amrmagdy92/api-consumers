@@ -5,11 +5,16 @@ const router = Router()
 
 router.route("/")
     .get((request, response) => {
-        getPOD(request.query)
+        getPOD()
         .then(result => {
             let responseCode = result.code
             let message = result.msg
             response.status(responseCode).render("nasa.ejs", { data: message })
+        })
+        .catch(err => {
+            let responseCode = err.code
+            let resultData = err.msg
+            response.status(responseCode).json({ msg: resultData })
         })
     })
 
