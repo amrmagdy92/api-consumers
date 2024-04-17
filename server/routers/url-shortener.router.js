@@ -4,6 +4,9 @@ import { shortenURL } from "../controllers/url-shortener.controller"
 const router = Router()
 
 router.route('/')
+    .get((request, response) => {
+        response.status(200).render('url-shortener.ejs')
+    })
     .post((request, response) => {
         shortenURL(request.body.url)
         .then(result => {
