@@ -1,12 +1,12 @@
-<div class="container">
+<div class="container col-sm-12">
     <section id="nasa-details">
-        <h3>Title: <%= data.title %></h3>
-        <h3>Copyright: <%= data.copyright %></h3>
-        <h3>Taken on: <%= data.date %></h3>
+        <h3>Title: <span class="badge text-bg-success"><%= data.title %></span></h3>
+        <h3>Copyright: <span class="badge text-bg-success"><%= data.copyright %></span></h3>
+        <h3>Taken on: <span class="badge text-bg-success"><%= data.date %></span></h3>
         <p><strong>Explanation:</strong></p>
-        <p><%= data.explanation %></p>
+        <p class="text-justify"><%= data.explanation %></p>
     </section>
-    <section id="nasa-image">
-        <img src="<%= data.url %>">
+    <section id="nasa-image" class="col-sm-12 text-center" style="width: 100%;">
+        <img src="<%= data.url %>" style="object-fit: scale-down; width: 100%;">
     </section>
 </div>
