@@ -35,6 +35,31 @@ function requestNews(category) {
     request.send(JSON.stringify(body))
 }
 
+function shortenUrl() {
+    const request = new XMLHttpRequest()
+    const body = {
+        "url": document.getElementById('shortener-input').value
+    }
+    request.open('POST', 'http://localhost:3000/api/v1/url-shortener')
+    request.setRequestHeader('Content-Type', 'application/json')
+    request.setRequestHeader('Accept', 'application/json')
+    request.addEventListener('load', function() {
+        let result = JSON.parse(request.response)
+        if (request.status === 200 && request.readyState === 4) {
+            if (result.msg.error) {
+                document.getElementById("message-error").classList.remove('visually-hidden')
+                document.getElementById("message-error").innerHTML = result.msg.error
+            } else {
+                document.getElementById("message-error").classList.add('visually-hidden')
+                document.getElementById('shortened-url').value = result.msg.result_url
+            }
+        } else {
+            console.log(request.response)
+        }
+    })
+    request.send(JSON.stringify(body))
+}
+
 function requestAPIList() {
     const request = new XMLHttpRequest()
     request.open('GET', 'http://localhost:3000/api/v1/apilist')
@@ -51,7 +76,25 @@ function requestAPIList() {
     request.send()
 }
 
-function requestURLShortener() {}
+function requestURLShortener() {
+    const request = new XMLHttpRequest()
+    request.open('GET', 'http://localhost:3000/api/v1/url-shortener')
+    request.setRequestHeader('Content-Type', 'application/json')
+    request.setRequestHeader('Accept', 'application/json')
+    request.addEventListener('load', function() {
+        if (request.status === 200 && request.readyState === 4) {
+            document.getElementById('main-body').innerHTML = request.response
+            document.getElementById('shortener-input').value = ""
+            document.getElementById('message-error').classList.add('visually-hidden')
+            document.getElementById('shortened-url').innerText = ""
+            document.getElementById('shortener-input').focus()
+            document.getElementById('shortener-input').select()
+        } else {
+            console.log(request.response)
+        }
+    })
+    request.send()
+}
 
 function requestWeather() {}
 
