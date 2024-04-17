@@ -115,7 +115,20 @@ function requestURLShortener() {
     request.send()
 }
 
-function requestNASA() {}
+function requestNASA() {
+    const request = new XMLHttpRequest()
+    request.open('GET', 'http://localhost:3000/api/v1/nasa')
+    request.setRequestHeader('Content-Type', 'application/json')
+    request.setRequestHeader('Accept', 'application/json')
+    request.addEventListener('load', function() {
+        if (request.status === 200 && request.readyState === 4) {
+            document.getElementById('main-body').innerHTML = request.response
+        } else {
+            console.log(request.response)
+        }
+    })
+    request.send()
+}
 
 function loadMainSection(apiCategory) {
     if (apiCategory === "News") {
