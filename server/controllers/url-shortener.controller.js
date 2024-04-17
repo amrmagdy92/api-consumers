@@ -1,6 +1,5 @@
 const shortenURL = (url) => {
     return new Promise((resolve, reject) => {
-        console.log(url)
         fetch('https://cleanuri.com/api/v1/shorten', {
             method: 'POST',
             body: JSON.stringify({ url: url}),
